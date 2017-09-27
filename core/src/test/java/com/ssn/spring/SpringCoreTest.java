@@ -19,7 +19,7 @@ public class SpringCoreTest {
     @Test
     @DisplayName("Get bean from context")
     void test1() {
-        AbstractApplicationContext context = new ClassPathXmlApplicationContext("com/ssn/spring/xml/application-xml.xml");
+        AbstractApplicationContext context = new ClassPathXmlApplicationContext("META-INF/spring/application-xml.xml");
 
         HomerSimpson homer = context.getBean("homer", HomerSimpson.class);
         homer.say();
@@ -29,7 +29,7 @@ public class SpringCoreTest {
     @Test
     @DisplayName("Get Bean from factory-method")
     void test2() {
-        AbstractApplicationContext context = new ClassPathXmlApplicationContext("com/ssn/spring/xml/application-xml.xml");
+        AbstractApplicationContext context = new ClassPathXmlApplicationContext("META-INF/spring/application-xml.xml");
 
         HomerSimpson homerFromFactory = context.getBean("homerFromFactory", HomerSimpson.class);
         homerFromFactory.say();
@@ -39,7 +39,7 @@ public class SpringCoreTest {
     @Test
     @DisplayName("Test singleton")
     void test3() {
-        AbstractApplicationContext context = new ClassPathXmlApplicationContext("com/ssn/spring/xml/application-xml.xml");
+        AbstractApplicationContext context = new ClassPathXmlApplicationContext("META-INF/spring/application-xml.xml");
         HomerSimpson homer1 = context.getBean("homer", HomerSimpson.class);
         HomerSimpson homer2 = context.getBean("homer", HomerSimpson.class);
 
@@ -50,7 +50,7 @@ public class SpringCoreTest {
     @Test
     @DisplayName("Get Bean from factory-bean")
     void test4() {
-        AbstractApplicationContext context = new ClassPathXmlApplicationContext("com/ssn/spring/xml/application-xml.xml");
+        AbstractApplicationContext context = new ClassPathXmlApplicationContext("META-INF/spring/application-xml.xml");
         BartSimpson bart = context.getBean("bartSimpsonFromFather", BartSimpson.class);
 
         bart.say();
@@ -60,7 +60,7 @@ public class SpringCoreTest {
     @Test
     @DisplayName("Property set")
     void test5() {
-        AbstractApplicationContext context = new ClassPathXmlApplicationContext("com/ssn/spring/xml/application-xml.xml");
+        AbstractApplicationContext context = new ClassPathXmlApplicationContext("META-INF/spring/application-xml.xml");
         HomerSimpson homer = context.getBean("homerClone1", HomerSimpson.class);
 
         Assertions.assertEquals(homer.getBeerAmount(), new Long(15));
@@ -69,7 +69,7 @@ public class SpringCoreTest {
     @Test
     @DisplayName("property set via 'p'")
     void test6() {
-        AbstractApplicationContext context = new ClassPathXmlApplicationContext("com/ssn/spring/xml/application-xml.xml");
+        AbstractApplicationContext context = new ClassPathXmlApplicationContext("META-INF/spring/application-xml.xml");
         HomerSimpson homer = context.getBean("homerClone2", HomerSimpson.class);
 
         Assertions.assertEquals(homer.getBeerAmount(), new Long(13));
@@ -79,7 +79,7 @@ public class SpringCoreTest {
     @Test
     @DisplayName("property set via 'c'")
     void test7() {
-        AbstractApplicationContext context = new ClassPathXmlApplicationContext("com/ssn/spring/xml/application-xml.xml");
+        AbstractApplicationContext context = new ClassPathXmlApplicationContext("META-INF/spring/application-xml.xml");
         HomerSimpson homer = context.getBean("homerClone3", HomerSimpson.class);
 
         Assertions.assertEquals(homer.getBeerAmount(), new Long(112));
@@ -89,7 +89,7 @@ public class SpringCoreTest {
     @Test
     @DisplayName("Create library class")
     void test8() {
-        AbstractApplicationContext context = new ClassPathXmlApplicationContext("com/ssn/spring/xml/application-xml.xml");
+        AbstractApplicationContext context = new ClassPathXmlApplicationContext("META-INF/spring/application-xml.xml");
         HomerSimpson homer = context.getBean("homerClone4", HomerSimpson.class);
 
         Assertions.assertEquals(homer.getBeerAmount(), new Long(34));
@@ -98,7 +98,7 @@ public class SpringCoreTest {
     @Test
     @DisplayName("Test Collections")
     void test9() {
-        AbstractApplicationContext context = new ClassPathXmlApplicationContext("com/ssn/spring/xml/application-xml.xml");
+        AbstractApplicationContext context = new ClassPathXmlApplicationContext("META-INF/spring/application-xml.xml");
         HomerSimpson homer = context.getBean("homerClone5", HomerSimpson.class);
 
         System.out.println(homer.getChildren());
@@ -110,7 +110,7 @@ public class SpringCoreTest {
     @Test
     @DisplayName("Test Collections wit properties")
     void test10() {
-        AbstractApplicationContext context = new ClassPathXmlApplicationContext("com/ssn/spring/xml/application-xml.xml");
+        AbstractApplicationContext context = new ClassPathXmlApplicationContext("META-INF/spring/application-xml.xml");
         HomerSimpson homer = context.getBean("homerClone6", HomerSimpson.class);
 
         System.out.println(homer.getChildren());
@@ -121,7 +121,7 @@ public class SpringCoreTest {
     @Test
     @DisplayName("Test i18n")
     void test11() {
-        AbstractApplicationContext context = new ClassPathXmlApplicationContext("com/ssn/spring/xml/application-xml.xml");
+        AbstractApplicationContext context = new ClassPathXmlApplicationContext("META-INF/spring/application-xml.xml");
         System.out.println(context.getMessage("child1", null, Locale.ENGLISH));
         System.out.println(context.getMessage("child2", null, Locale.ENGLISH));
         System.out.println(context.getMessage("child3", null, Locale.ENGLISH));
@@ -138,7 +138,7 @@ public class SpringCoreTest {
 //        System.setProperty("spring.profiles.active", "starwars");
 
 
-        AbstractApplicationContext context = new ClassPathXmlApplicationContext("com/ssn/spring/xml/application-annotation.xml");
+        AbstractApplicationContext context = new ClassPathXmlApplicationContext("META-INF/spring/application-annotation.xml");
 
         Worker worker = context.getBean("worker", Worker.class);
 
@@ -159,14 +159,14 @@ public class SpringCoreTest {
     @Test
     @DisplayName("LifeCycle")
     void test14() {
-        AbstractApplicationContext context = new ClassPathXmlApplicationContext("com/ssn/spring/xml/application-lifecycle.xml");
+        AbstractApplicationContext context = new ClassPathXmlApplicationContext("META-INF/spring/application-lifecycle.xml");
         context.close();
     }
 
     @Test
     @DisplayName("Messages")
     void test15() {
-        AbstractApplicationContext context = new ClassPathXmlApplicationContext("com/ssn/spring/xml/application-messages.xml");
+        AbstractApplicationContext context = new ClassPathXmlApplicationContext("META-INF/spring/application-messages.xml");
         context.close();
     }
 

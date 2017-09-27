@@ -162,7 +162,7 @@ public class SpringAOPTest {
     @Test
     @DisplayName("Test AspectJ")
     void test9() {
-        AbstractApplicationContext context = new ClassPathXmlApplicationContext("com/ssn/spring/aop/application-config-annotation.xml");
+        AbstractApplicationContext context = new ClassPathXmlApplicationContext("META_INF/spring/application-config-annotation.xml");
         MyBean mybean = context.getBean("myBean", MyBean.class);
         mybean.execute();
     }
@@ -171,7 +171,7 @@ public class SpringAOPTest {
     @DisplayName("Test before metod advice")
     @ValueSource(strings = { "MongoDb", "Cassandra" })
     void test20(String user) {
-        AbstractApplicationContext context = new ClassPathXmlApplicationContext("com/ssn/spring/aop/application-config.xml");
+        AbstractApplicationContext context = new ClassPathXmlApplicationContext("META_INF/spring/application-config.xml");
         SimpleBeforeAdvice proxy = context.getBean("simpleBeforeAdvice", SimpleBeforeAdvice.class);
         proxy.hello(user);
     }
