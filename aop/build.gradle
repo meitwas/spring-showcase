@@ -1,0 +1,9 @@
+repositories {
+    maven {
+        url "http://repo.spring.io/milestone/"
+    }
+}
+
+dependencies {
+    compile group: 'org.aspectj', name: 'aspectjtools', version: '1.9.0.BETA-6'
+}

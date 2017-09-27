@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="homer" class="com.ssn.spring.xml.HomerSimpson"/>
+
+    <bean id="homerClone1" class="com.ssn.spring.xml.HomerSimpson">
+        <property name="beerAmount" value="15"/>
+    </bean>
+
+    <bean id="homerClone2" class="com.ssn.spring.xml.HomerSimpson" p:beerAmount="13"></bean>
+
+    <bean id="homerClone3" class="com.ssn.spring.xml.HomerSimpson" c:_0="112"></bean>
+
+    <bean id="beer" class="java.lang.Long" c:_0="34"></bean>
+
+    <bean id="homerClone4" class="com.ssn.spring.xml.HomerSimpson" c:_0-ref="beer"></bean>
+
+    <bean id="homerFromFactory" class="com.ssn.spring.xml.HomerSimpson" factory-method="createInstance"/>
+
+    <bean id="bartSimpsonFromFather" factory-bean="homer" factory-method="born"/>
+
+    <bean id="homerClone5" class="com.ssn.spring.xml.HomerSimpson">
+        <property name="children">
+            <list>
+                <value>Bart</value>
+                <value>Lisa</value>
+                <value>Maggie</value>
+            </list>
+        </property>
+    </bean>
+
+    <context:property-placeholder location="classpath*:com/ssn/spring/xml/test.properties" />
+
+    <bean id="homerClone6" class="com.ssn.spring.xml.HomerSimpson">
+        <property name="children">
+            <list>
+                <value>${child1}</value>
+                <value>${child2}</value>
+                <value>${child3}</value>
+            </list>
+        </property>
+    </bean>
+
+
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource"
+          p:basenames-ref="basenames" p:defaultEncoding="UTF-8"/>
+
+    <util:list id="basenames">
+        <value>com/ssn/spring/xml/i18n/labels</value>
+    </util:list>
+
+</beans>

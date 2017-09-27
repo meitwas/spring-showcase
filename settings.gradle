@@ -1,0 +1,6 @@
+rootProject.name = 'spring'
+
+include 'core'
+include 'aop'
+include 'jdbc'
+

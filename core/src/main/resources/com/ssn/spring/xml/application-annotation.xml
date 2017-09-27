@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+    <context:annotation-config> is used to activate annotations in beans already registered in the application context
+    (no matter if they were defined with XML or by package scanning).
+
+     <context:component-scan> can also do what <context:annotation-config>
+     does but <context:component-scan> also scans packages to find and register beans within the application context.
+    -->
+
+    <context:component-scan base-package="com.ssn.spring.annotation"/>
+
+    <!--<context:annotation-config/>-->
+
+    <!--<bean id="worker" class="com.ssn.spring.core.ioc.beans.annotation.Worker"></bean>-->
+
+
+    <!--<bean id="defender" class="com.ssn.spring.core.ioc.beans.annotation.ObiWanKenobi" init-method="init2"></bean>-->
+
+</beans>
