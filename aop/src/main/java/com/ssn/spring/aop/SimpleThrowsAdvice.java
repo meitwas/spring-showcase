@@ -12,17 +12,15 @@ public class SimpleThrowsAdvice {
         throw new IllegalArgumentException();
     }
 
-
     public static class ThrowsAdviceImpl implements ThrowsAdvice {
 
-        public void afterThrowing(Exception ех) throws Throwable {
+        public void afterThrowing(Exception ex) throws Throwable {
             System.out.println("Exception");
         }
 
-        public void afterThrowing(IllegalArgumentException ех) throws Throwable {
+        public void afterThrowing(IllegalArgumentException ex) throws Throwable {
             System.out.println("IllegalArgumentException");
         }
-
 
     }
 }
