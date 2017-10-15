@@ -25,7 +25,7 @@ public class Application {
             h2Server = Server.createTcpServer();
         }
         h2Server.start();
-        return "started";
+        return "H2 server has been started. <html><a href=\"http://localhost:8090/h2-console/\">Visit console.</a><a></a></html> JDBC: jdbc:h2:tcp://localhost:9092/mem:test";
     }
 
     @RequestMapping("/stop")
@@ -33,6 +33,6 @@ public class Application {
         if (h2Server != null) {
             h2Server.stop();
         }
-        return "stopped";
+        return "H2 server has been stopped";
     }
 }
