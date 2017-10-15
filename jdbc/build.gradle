@@ -1,4 +1,4 @@
 dependencies {
     compile group: 'org.springframework', name: 'spring-jdbc', version: "$SPRING_VERSION"
-    testCompile group: 'com.h2database', name: 'h2', version: '1.4.196'
+    compile group: 'com.h2database', name: 'h2', version: '1.4.196'
 }
