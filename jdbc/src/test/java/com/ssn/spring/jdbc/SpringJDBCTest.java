@@ -14,7 +14,7 @@ public class SpringJDBCTest {
 
     @BeforeAll
     public static void init() {
-        context = new ClassPathXmlApplicationContext("META-INF/spring/application-config-embedded.xml");
+        context = new ClassPathXmlApplicationContext("META-INF/application-config-embedded.xml");
 //        context = new ClassPathXmlApplicationContext("META-INF/spring/application-config-db.xml");
     }
 

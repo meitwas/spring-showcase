@@ -4,4 +4,6 @@ include 'core'
 include 'aop'
 include 'jdbc'
 include 'db'
+include 'jpa'
+include 'tx'
 

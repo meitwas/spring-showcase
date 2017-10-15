@@ -1,0 +1,8 @@
+dependencies {
+    compile group: 'org.springframework', name: 'spring-jdbc', version: "$SPRING_VERSION"
+    compile group: 'org.springframework', name: 'spring-orm', version: "$SPRING_VERSION"
+    compile group: 'org.hibernate.javax.persistence', name: 'hibernate-jpa-2.1-api', version: '1.0.0.Final'
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.2.11.Final'
+    compile group: 'com.h2database', name: 'h2', version: '1.4.196'
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'
+}
