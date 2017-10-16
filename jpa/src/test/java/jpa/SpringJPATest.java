@@ -42,4 +42,39 @@ public class SpringJPATest {
         System.out.println(contacts);
     }
 
+    @Test
+    @DisplayName("Test Save")
+    void test3() {
+        ContactService contactService = context.getBean("jpaContactService", ContactService.class);
+        Contact contact = new Contact();
+        contact.setLastName("123");
+        contact.setFirstName("123");
+        contact.setBirthDate(new Date());
+
+        contactService.save(contact);
+
+        List<Contact> contacts = contactService.findAll();
+        contacts.forEach(System.out::println);
+
+    }
+
+    @Test
+    @DisplayName("Test @Version")
+    void test4() {
+        ContactService contactService = context.getBean("jpaContactService", ContactService.class);
+
+        Contact contact = contactService.findById(1l);
+        contact.setLastName("1223");
+
+//       try {
+//            Thread.sleep(30000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+
+        contactService.save(contact);
+
+
+    }
+
 }

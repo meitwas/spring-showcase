@@ -63,6 +63,8 @@ public class ContactServiceImpl implements ContactService {
             log.info("Updating existing contact");
         }
 
+//        em.merge(contact);
+
         log.info("Contact saved with id: " + contact.getId());
 
         return contact;
@@ -70,8 +72,7 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public void delete(Contact contact) {
-        Contact mergedContact = em.merge(contact);
-        em.remove(mergedContact);
+        em.remove(contact);
 
         log.info("Contact with id: " + contact.getId()  + " deleted successfully");
     }
@@ -92,6 +93,10 @@ public class ContactServiceImpl implements ContactService {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Contact> criteriaQuery = cb.createQuery(Contact.class);
         Root<Contact> contactRoot = criteriaQuery.from(Contact.class);
+        contactRoot.fetch("contactTelDetails", JoinType.LEFT);
+        contactRoot.fetch("hobbies", JoinType.LEFT);
+//        contactRoot.fetch(Contact_.contactTelDetails, JoinType.LEFT);
+//        contactRoot.fetch(Contact_.hobbies, JoinType.LEFT);
 
         criteriaQuery.select(contactRoot).distinct(true);
 

@@ -1,3 +1,7 @@
+//plugins {
+//    id "at.comm_unity.gradle.plugins.jpamodelgen" version "1.1.4"
+//}
+
 dependencies {
     compile group: 'org.springframework', name: 'spring-jdbc', version: "$SPRING_VERSION"
     compile group: 'org.springframework', name: 'spring-orm', version: "$SPRING_VERSION"
