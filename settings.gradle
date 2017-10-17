@@ -6,4 +6,5 @@ include 'jdbc'
 include 'db'
 include 'jpa'
 include 'tx'
+include 'scheduler'
 
