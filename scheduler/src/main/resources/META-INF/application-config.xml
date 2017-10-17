@@ -12,4 +12,6 @@
         <task:scheduled ref="carService" method="updateCarAgeJob" fixed-delay="10000"/>
     </task:scheduled-tasks>
 
+    <!--<task:annotation-driven scheduler="myScheduler"/>-->
+
 </beans>
