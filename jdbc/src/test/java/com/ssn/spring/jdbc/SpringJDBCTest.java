@@ -1,22 +1,23 @@
 package com.ssn.spring.jdbc;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import javax.sql.DataSource;
 import java.util.List;
 
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration(locations = {"classpath:META-INF/application-config-embedded.xml"})
 public class SpringJDBCTest {
 
-    private static AbstractApplicationContext context;
-
-    @BeforeAll
-    public static void init() {
-        context = new ClassPathXmlApplicationContext("META-INF/application-config-embedded.xml");
-//        context = new ClassPathXmlApplicationContext("META-INF/spring/application-config-db.xml");
-    }
+    @Autowired
+    private AbstractApplicationContext context;
 
     @Test
     @DisplayName("Test DB")
