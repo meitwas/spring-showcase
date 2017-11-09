@@ -7,4 +7,5 @@ include 'db'
 include 'jpa'
 include 'tx'
 include 'scheduler'
+include 'scopes'
 
