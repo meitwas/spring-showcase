@@ -24,7 +24,11 @@ public class Application {
 
     @Autowired
     @Qualifier("testBeanSession")
-    private TestBean testBeanSingleton;
+    private TestBean testBeanSingleton1;
+
+    @Autowired
+    @Qualifier("testBeanSession")
+    private TestBean testBeanSingleton2;
 
     @Autowired
     @Qualifier("testBeanPrototype")
@@ -54,9 +58,14 @@ public class Application {
 
     @RequestMapping("/singleton")
     public String singleton() {
-        System.out.println("Test Singleton Class" + testBeanSingleton.getClass());
-        System.out.println("Test Singleton " + testBeanSingleton.hashCode());
-        System.out.println("Test Singleton Object " + testBeanSingleton.getObj().hashCode());
+        System.out.println("Test Singleton Class" + testBeanSingleton1.getClass());
+        System.out.println("Test Singleton " + testBeanSingleton1.hashCode());
+        System.out.println("Test Singleton Object " + testBeanSingleton1.getObj().hashCode());
+        System.out.println();
+
+        System.out.println("Test Singleton Class" + testBeanSingleton2.getClass());
+        System.out.println("Test Singleton " + testBeanSingleton2.hashCode());
+        System.out.println("Test Singleton Object " + testBeanSingleton2.getObj().hashCode());
         System.out.println();
         return "Ok";
     }
